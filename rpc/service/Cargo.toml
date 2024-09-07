@@ -1,0 +1,36 @@
+[package]
+name = "astrix-rpc-service"
+description = "Astrix RPC service"
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+include.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+astrix-addresses.workspace = true
+astrix-consensus-core.workspace = true
+astrix-consensus-notify.workspace = true
+astrix-consensusmanager.workspace = true
+astrix-core.workspace = true
+astrix-hashes.workspace = true
+astrix-index-core.workspace = true
+astrix-math.workspace = true
+astrix-mining.workspace = true
+astrix-notify.workspace = true
+astrix-p2p-flows.workspace = true
+astrix-p2p-lib.workspace = true
+astrix-perf-monitor.workspace = true
+astrix-rpc-core.workspace = true
+astrix-txscript.workspace = true
+astrix-utils.workspace = true
+astrix-utils-tower.workspace = true
+astrix-utxoindex.workspace = true
+
+async-trait.workspace = true
+log.workspace = true
+tokio.workspace = true
+triggered.workspace = true
+workflow-rpc.workspace = true

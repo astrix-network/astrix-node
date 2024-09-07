@@ -1,0 +1,45 @@
+[package]
+name = "astrix-wrpc-wasm"
+description = "Astrix wRPC WASM client"
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+include.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[features]
+wasm32-sdk = ["astrix-wrpc-client/wasm32-sdk"]
+default = []
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+ahash.workspace = true
+async-std.workspace = true
+cfg-if.workspace = true
+astrix-addresses.workspace = true
+astrix-consensus-core.workspace = true
+astrix-consensus-client.workspace = true
+astrix-consensus-wasm.workspace = true
+astrix-notify.workspace = true
+astrix-wrpc-client.workspace = true
+astrix-rpc-core.workspace = true
+astrix-rpc-macros.workspace = true
+astrix-wasm-core.workspace = true
+serde_json.workspace = true
+serde-wasm-bindgen.workspace = true
+serde.workspace = true
+workflow-log.workspace = true
+workflow-rpc.workspace = true
+workflow-wasm.workspace = true
+wasm-bindgen.workspace = true
+js-sys.workspace = true
+wasm-bindgen-futures.workspace = true
+workflow-core.workspace = true
+futures.workspace = true
+
+[lints.clippy]
+empty_docs = "allow"

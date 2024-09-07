@@ -1,0 +1,6 @@
+/target
+/Cargo.lock
+/web/astrix-rpc
+/nodejs/astrix-rpc
+/nodejs/node_modules
+/nodejs/package-lock.json

@@ -1,0 +1,47 @@
+[package]
+name = "astrix-notify"
+description = "Astrix notification subsystem"
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+include.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+async-channel.workspace = true
+async-trait.workspace = true
+borsh.workspace = true
+derive_more.workspace = true
+futures-util.workspace = true
+futures.workspace = true
+indexmap.workspace = true
+itertools.workspace = true
+astrix-addresses.workspace = true
+astrix-consensus-core.workspace = true
+astrix-core.workspace = true
+astrix-hashes.workspace = true
+astrix-txscript-errors.workspace = true
+astrix-txscript.workspace = true
+astrix-utils.workspace = true
+log.workspace = true
+parking_lot.workspace = true
+paste.workspace = true
+rand.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+triggered.workspace = true
+workflow-core.workspace = true
+workflow-log.workspace = true
+
+[dev-dependencies]
+criterion.workspace = true
+astrix-alloc.workspace = true
+astrix-math.workspace = true
+tokio = { workspace = true, features = ["rt", "macros"] }
+workflow-perf-monitor.workspace = true
+
+[[bench]]
+name = "bench"
+harness = false

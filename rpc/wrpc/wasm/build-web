@@ -1,0 +1,3 @@
+#!/bin/bash
+
+wasm-pack build --target web --out-name astrix-rpc --out-dir web/astrix-rpc --features wasm32-sdk

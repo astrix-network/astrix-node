@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script type="module">
+            import * as astrix from './astrix-wallet/astrix-wallet.js';
+            (async () => {
+                const wasm = await astrix.default('./astrix-wallet/astrix-wallet_bg.wasm');
+                await wasm.load_astrix_wallet_cli();
+            })();
+        </script>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .terminal {
+                margin: 8px;
+                width: calc(100vw - 16px);
+                height: calc(100vh - 16px);
+            }
+        </style>
+    </head>
+    <body></body>
+</html>

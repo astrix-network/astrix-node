@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <script type="module">
+            import * as astrix from './astrix-rpc/astrix-rpc.js';
+            (async () => {
+                await astrix.default('./astrix-rpc/astrix-rpc_bg.wasm');
+                console.log(astrix.version());
+            })();
+        </script>
+    </head>
+    <body></body>
+</html>

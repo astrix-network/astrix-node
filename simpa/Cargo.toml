@@ -1,0 +1,40 @@
+[package]
+name = "simpa"
+description = "Astrix Network Simulator"
+publish = false
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+include.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+astrix-alloc.workspace = true            # This changes the global allocator for all of the next dependencies so should be kept first 
+astrix-consensus-core.workspace = true
+astrix-consensus-notify.workspace = true
+astrix-consensus.workspace = true
+astrix-core.workspace = true
+astrix-database.workspace = true
+astrix-hashes.workspace = true
+astrix-perf-monitor.workspace = true
+astrix-utils.workspace = true
+
+async-channel.workspace = true
+clap.workspace = true
+dhat = { workspace = true, optional = true }
+futures-util.workspace = true
+futures.workspace = true
+indexmap.workspace = true
+itertools.workspace = true
+log.workspace = true
+num_cpus.workspace = true
+rand_distr.workspace = true
+rand.workspace = true
+rayon.workspace = true
+secp256k1.workspace = true
+tokio = { workspace = true, features = ["rt", "macros", "rt-multi-thread"] }
+
+[features]
+heap = ["dhat", "astrix-alloc/heap"]

@@ -1,0 +1,22 @@
+[package]
+name = "astrix-wrpc-example-subscriber"
+description = "Astrix wRPC subscription example"
+publish = false
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+include.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+futures.workspace = true
+astrix-consensus-core.workspace = true
+astrix-rpc-core.workspace = true
+astrix-wrpc-client.workspace = true
+astrix-notify.workspace = true
+tokio.workspace = true
+workflow-core.workspace = true
+workflow-log.workspace = true
+ctrlc.workspace = true

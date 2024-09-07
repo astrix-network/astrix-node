@@ -1,0 +1,13 @@
+[package]
+name = "astrix-merkle"
+description = "Astrix merkle tree library"
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+include.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+astrix-hashes.workspace = true

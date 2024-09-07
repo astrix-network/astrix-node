@@ -1,0 +1,90 @@
+#!/bin/bash
+# This script builds the Astrix Node WASM32 SDK release.
+
+# make the script fail for any failed command
+set -e
+
+rm -rf release/*
+rm -rf web/*
+rm -rf nodejs/*
+rm -rf docs/*
+rm -rf examples/nodejs/typescript/lib
+
+mkdir -p release/astrix-wasm32-sdk/web
+mkdir -p release/astrix-wasm32-sdk/nodejs
+mkdir -p release/astrix-wasm32-sdk/docs
+
+# pushd .
+# cd ../rpc/wrpc/wasm
+# wasm-pack build --target web --out-name astrix-rpc --out-dir web/astrix-rpc --features wasm32-sdk $@
+# popd
+
+wasm-pack build --weak-refs --target web --out-name astrix --out-dir web/astrix-keygen --features wasm32-keygen $@
+wasm-pack build --weak-refs --dev --target web --out-name astrix --out-dir web/astrix-keygen-dev --features wasm32-keygen $@
+
+wasm-pack build --weak-refs --target web --out-name astrix --out-dir web/astrix-rpc --features wasm32-rpc $@
+wasm-pack build --weak-refs --dev --target web --out-name astrix --out-dir web/astrix-rpc-dev --features wasm32-rpc $@
+
+wasm-pack build --weak-refs --target web --out-name astrix --out-dir web/astrix-core --features wasm32-core $@
+wasm-pack build --weak-refs --dev --target web --out-name astrix --out-dir web/astrix-core-dev --features wasm32-core $@
+
+wasm-pack build --weak-refs --target web --out-name astrix --out-dir web/astrix --features wasm32-sdk $@
+wasm-pack build --weak-refs --dev --target web --out-name astrix --out-dir web/astrix-dev --features wasm32-sdk $@
+
+wasm-pack build --weak-refs --target nodejs --out-name astrix --out-dir nodejs/astrix --features wasm32-sdk $@
+wasm-pack build --weak-refs --dev --target nodejs --out-name astrix --out-dir nodejs/astrix-dev --features wasm32-sdk $@
+
+# wasm-pack build --target web --dev --out-name astrix --out-dir build/docs/astrix --features wasm32-sdk $@
+typedoc --name "Astrix WASM32 SDK - Key Generation" --sourceLinkExternal --readme ./README.md --options ./build/docs/ --out docs/astrix-keygen ./build/docs/astrix-keygen.ts
+typedoc --name "Astrix WASM32 SDK - RPC" --sourceLinkExternal --readme ./README.md --options ./build/docs/ --out docs/astrix-rpc ./build/docs/astrix-rpc.ts
+typedoc --name "Astrix WASM32 SDK - Core" --sourceLinkExternal --readme ./README.md --options ./build/docs/ --out docs/astrix-core ./build/docs/astrix-core.ts
+typedoc --name "Astrix WASM32 SDK" --sourceLinkExternal --readme ./README.md --options ./build/docs/ --out docs/astrix ./build/docs/astrix.ts
+
+# cp -r ../rpc/wrpc/wasm/web/astrix-rpc release/astrix-wasm32-sdk/web/astrix-rpc
+cp -r web/astrix-keygen release/astrix-wasm32-sdk/web/astrix-keygen
+cp -r web/astrix-keygen-dev release/astrix-wasm32-sdk/web/astrix-keygen-dev
+
+cp -r web/astrix-rpc release/astrix-wasm32-sdk/web/astrix-rpc
+cp -r web/astrix-rpc-dev release/astrix-wasm32-sdk/web/astrix-rpc-dev
+
+cp -r web/astrix-core release/astrix-wasm32-sdk/web/astrix-core
+cp -r web/astrix-core-dev release/astrix-wasm32-sdk/web/astrix-core-dev
+
+cp -r web/astrix release/astrix-wasm32-sdk/web/astrix
+cp -r web/astrix-dev release/astrix-wasm32-sdk/web/astrix-dev
+
+cp -r nodejs/astrix release/astrix-wasm32-sdk/nodejs/astrix
+cp -r nodejs/astrix-dev release/astrix-wasm32-sdk/nodejs/astrix-dev
+
+cp -r docs/astrix-keygen release/astrix-wasm32-sdk/docs/astrix-keygen
+cp -r docs/astrix-rpc release/astrix-wasm32-sdk/docs/astrix-rpc
+cp -r docs/astrix-core release/astrix-wasm32-sdk/docs/astrix-core
+cp -r docs/astrix release/astrix-wasm32-sdk/docs/astrix
+
+mkdir -p release/astrix-wasm32-sdk/examples/data
+cp -r examples/data/.gitignore release/astrix-wasm32-sdk/examples/data/.gitignore
+cp -r examples/nodejs release/astrix-wasm32-sdk/examples/
+cp -r examples/web release/astrix-wasm32-sdk/examples/
+cp -r examples/init.js release/astrix-wasm32-sdk/examples/
+cp -r examples/jsconfig.json release/astrix-wasm32-sdk/examples/
+cp -r examples/package.json release/astrix-wasm32-sdk/examples/
+
+pushd .
+cd release/astrix-wasm32-sdk/examples
+npm install
+popd
+
+# tsc release/astrix-wasm32-sdk/examples/nodejs/typescript/
+
+cp index.html release/astrix-wasm32-sdk/index.html
+cp README.md release/astrix-wasm32-sdk/README.md
+cp CHANGELOG.md release/astrix-wasm32-sdk/CHANGELOG.md
+cp LICENSE release/astrix-wasm32-sdk/LICENSE
+
+node build/package-sizes.js
+cp package-sizes.js release/astrix-wasm32-sdk/package-sizes.js
+
+pushd .
+cd release
+zip -q -r astrix-wasm32-sdk.zip astrix-wasm32-sdk
+popd

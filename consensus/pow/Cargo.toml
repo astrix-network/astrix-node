@@ -1,0 +1,33 @@
+[package]
+name = "astrix-pow"
+description = "Astrix proof-of-work"
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+include.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[features]
+wasm32-sdk = []
+
+[dependencies]
+sha3.workspace = true
+blake3.workspace = true
+js-sys.workspace = true
+astrix-consensus-core.workspace = true
+astrix-consensus-client.workspace = true
+astrix-hashes.workspace = true
+astrix-math.workspace = true
+astrix-utils.workspace = true
+wasm-bindgen.workspace = true
+workflow-wasm.workspace = true
+num.workspace = true
+
+[dev-dependencies]
+criterion.workspace = true
+
+[[bench]]
+name = "bench"
+harness = false

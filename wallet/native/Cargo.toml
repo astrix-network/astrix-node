@@ -1,0 +1,21 @@
+[package]
+name = "astrix-wallet"
+description = "Astrix wallet"
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+include.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[features]
+default = []
+
+[dependencies]
+async-std.workspace = true
+async-trait.workspace = true
+astrix-cli.workspace = true
+tokio.workspace = true
+workflow-log.workspace = true
+workflow-terminal.workspace = true

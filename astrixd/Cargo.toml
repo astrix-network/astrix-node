@@ -1,0 +1,62 @@
+[package]
+name = "astrixd"
+description = "Astrix full node daemon"
+keywords = ["astrix", "blockdag"]
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+include.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+name = "astrixd_lib"
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+astrix-alloc.workspace = true # This changes the global allocator for all of the next dependencies so should be kept first
+
+astrix-addresses.workspace = true
+astrix-addressmanager.workspace = true
+astrix-consensus-core.workspace = true
+astrix-consensus-notify.workspace = true
+astrix-consensus.workspace = true
+astrix-consensusmanager.workspace = true
+astrix-core.workspace = true
+astrix-database.workspace = true
+astrix-grpc-server.workspace = true
+astrix-hashes.workspace = true
+astrix-index-processor.workspace = true
+astrix-mining.workspace = true
+astrix-notify.workspace = true
+astrix-p2p-flows.workspace = true
+astrix-perf-monitor.workspace = true
+astrix-rpc-core.workspace = true
+astrix-rpc-service.workspace = true
+astrix-txscript.workspace = true
+astrix-utils.workspace = true
+astrix-utils-tower.workspace = true
+astrix-utxoindex.workspace = true
+astrix-wrpc-server.workspace = true
+
+async-channel.workspace = true
+clap.workspace = true
+dhat = { workspace = true, optional = true }
+serde.workspace = true
+dirs.workspace = true
+futures-util.workspace = true
+log.workspace = true
+num_cpus.workspace = true
+rand.workspace = true
+rayon.workspace = true
+tempfile.workspace = true
+thiserror.workspace = true
+tokio = { workspace = true, features = ["rt", "macros", "rt-multi-thread"] }
+workflow-log.workspace = true
+toml = "0.8.10"
+serde_with = "3.7.0"
+
+[features]
+heap = ["dhat", "astrix-alloc/heap"]
+devnet-prealloc = ["astrix-consensus/devnet-prealloc"]

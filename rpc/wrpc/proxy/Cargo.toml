@@ -1,0 +1,28 @@
+[package]
+name = "astrix-wrpc-proxy"
+description = "Astrix wRPC to gRPC proxy"
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+include.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+async-trait.workspace = true
+clap.workspace = true
+astrix-consensus-core.workspace = true
+astrix-grpc-client.workspace = true
+astrix-rpc-core.workspace = true
+astrix-rpc-macros.workspace = true
+astrix-wrpc-server.workspace = true
+num_cpus.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+workflow-core.workspace = true
+workflow-log.workspace = true
+workflow-rpc.workspace = true
+
+[package.metadata.emanate.build]
+folder = "setup"

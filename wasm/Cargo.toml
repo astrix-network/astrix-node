@@ -1,0 +1,65 @@
+[package]
+name = "astrix-wasm"
+description = "ASTRIX WASM bindings"
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+include.workspace = true
+repository.workspace = true
+# wasm-pack requires this value to be a string
+# (it can not be derived from the workspace)
+license = "ISC"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+cfg-if.workspace = true
+js-sys.workspace = true
+astrix-addresses.workspace = true
+astrix-consensus-core.workspace = true
+astrix-consensus-wasm.workspace = true
+astrix-core.workspace = true
+astrix-math.workspace = true
+astrix-pow.workspace = true
+astrix-rpc-core.workspace = true
+astrix-utils.workspace = true
+astrix-wasm-core.workspace = true
+astrix-wallet-core.workspace = true
+astrix-wallet-keys.workspace = true
+astrix-wrpc-client.workspace = true
+astrix-wrpc-wasm.workspace = true
+num.workspace = true
+wasm-bindgen.workspace = true
+workflow-log.workspace = true
+workflow-core.workspace = true
+workflow-wasm.workspace = true
+
+[features] 
+wasm32-sdk = [
+    "astrix-wallet-core/wasm32-sdk",
+    "astrix-pow/wasm32-sdk",
+]
+wasm32-core = [
+    "astrix-wallet-core/wasm32-core",
+    "astrix-pow/wasm32-sdk",
+]
+wasm32-rpc = [
+    "astrix-consensus-core/wasm32-sdk",
+    "astrix-consensus-wasm/wasm32-sdk",
+    "astrix-wrpc-client/wasm32-sdk",
+    "astrix-wrpc-wasm/wasm32-sdk",
+]
+wasm32-keygen = []
+default = []
+
+[package.metadata.docs.rs]
+targets = ["wasm32-unknown-unknown"]
+
+[package.metadata.emanate.wasm]
+targets = [
+    { target = "nodejs", out-dir = "nodejs/astrix" },
+    { target = "web", out-dir = "web/astrix" }
+]
+folder = "setup"

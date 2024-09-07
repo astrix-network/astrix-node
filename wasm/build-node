@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+
+wasm-pack build --weak-refs --target nodejs --out-name astrix --out-dir nodejs/astrix --features wasm32-sdk

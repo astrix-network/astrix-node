@@ -1,0 +1,28 @@
+{
+  "name": "astrix",
+  "version": "0.13.5",
+  "description": "Astrix SDK",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astrix-network/astrix-node.git"
+  },
+  "keywords": [
+    "astrix",
+    "wasm",
+    "sdk"
+  ],
+  "author": "Astrix developers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/astrix-network/astrix-node/issues"
+  },
+  "homepage": "https://github.com/astrix-network/astrix-node#readme",
+  "dependencies": {
+    "websocket": "1.0.34",
+    "astrix-wasm": "0.13.5"
+  }
+}

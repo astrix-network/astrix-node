@@ -1,0 +1,1 @@
+wasm-pack build --target web --out-name astrix-wallet --out-dir web/astrix-wallet $@

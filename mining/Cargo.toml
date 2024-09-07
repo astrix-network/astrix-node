@@ -1,0 +1,40 @@
+[package]
+name = "astrix-mining"
+description = "Astrix mining"
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+include.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+astrix-addresses.workspace = true
+astrix-consensus-core.workspace = true
+astrix-consensusmanager.workspace = true
+astrix-core.workspace = true
+astrix-hashes.workspace = true
+astrix-mining-errors.workspace = true
+astrix-muhash.workspace = true
+astrix-txscript.workspace = true
+astrix-utils.workspace = true
+
+futures-util.workspace = true
+itertools.workspace = true
+log.workspace = true
+parking_lot.workspace = true
+rand.workspace = true
+serde.workspace = true
+smallvec.workspace = true
+thiserror.workspace = true
+tokio = { workspace = true, features = [ "rt-multi-thread", "macros", "signal" ] }
+
+[dev-dependencies]
+astrix-txscript.workspace = true
+criterion.workspace = true
+secp256k1.workspace = true
+
+[[bench]]
+name = "bench"
+harness = false

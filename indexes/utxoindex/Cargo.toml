@@ -1,0 +1,29 @@
+[package]
+name = "astrix-utxoindex"
+description = "Astrix UTXO index"
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+include.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+futures.workspace = true
+astrix-consensus-core.workspace = true
+astrix-consensusmanager.workspace = true
+astrix-core.workspace = true
+astrix-database.workspace = true
+astrix-hashes.workspace = true
+astrix-index-core.workspace = true
+astrix-utils.workspace = true
+log.workspace = true
+parking_lot.workspace = true
+rocksdb.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+astrix-consensus.workspace = true
+rand = { workspace = true, features = ["small_rng"] }

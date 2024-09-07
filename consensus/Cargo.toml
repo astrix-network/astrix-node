@@ -1,0 +1,63 @@
+[package]
+name = "astrix-consensus"
+description = "Astrix consensus library"
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+include.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+arc-swap.workspace = true
+async-channel.workspace = true
+bincode.workspace = true
+crossbeam-channel.workspace = true
+faster-hex.workspace = true
+futures-util.workspace = true
+indexmap.workspace = true
+itertools.workspace = true
+astrix-consensus-core.workspace = true
+astrix-consensus-notify.workspace = true
+astrix-consensusmanager.workspace = true
+astrix-core.workspace = true
+astrix-database.workspace = true
+astrix-hashes.workspace = true
+astrix-math.workspace = true
+astrix-merkle.workspace = true
+astrix-muhash.workspace = true
+astrix-notify.workspace = true
+astrix-pow.workspace = true
+astrix-txscript.workspace = true
+astrix-utils.workspace = true
+log.workspace = true
+once_cell.workspace = true
+parking_lot.workspace = true
+rayon.workspace = true
+rocksdb.workspace = true
+secp256k1.workspace = true
+serde.workspace = true
+smallvec.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+
+rand = { workspace = true, features = ["small_rng"] }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dev-dependencies]
+tokio = { workspace = true, features = ["rt", "macros"] }
+
+[dev-dependencies]
+criterion.workspace = true
+serde_json.workspace = true
+flate2.workspace = true
+rand_distr.workspace = true
+astrix-txscript-errors.workspace = true
+
+[[bench]]
+name = "hash_benchmarks"
+harness = false
+
+[features]
+html_reports = []
+devnet-prealloc = ["astrix-consensus-core/devnet-prealloc"]
