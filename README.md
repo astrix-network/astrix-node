@@ -1,7 +1,7 @@
 
-<h1>Astrix On Rust</h1>
+<h1>Astrix Node</h1>
 
-Welcome to the Rust-based implementation of the Astrix full-node and its ancillary libraries. 
+Astrix full-node and its ancillary libraries. 
 
 We invite developers and blockchain enthusiasts to collaborate, test, and optimize our Rust implementation. Each line of code here is an opportunity to contribute to the open-source blockchain movement, shaping a platform designed for scalability and speed without compromising on decentralization.
 
@@ -170,11 +170,6 @@ To build WASM on MacOS you need to install `llvm` from homebrew (at the time of 
   - NodeJs (v20+): https://nodejs.org/en
   - TypeDoc: https://typedoc.org/
 
-### Builds & documentation
-
-  - Release builds: https://github.com/astrix-network/astrix-node/releases
-  - Developer builds: https://astrix.aspectron.org/nightly/downloads/
-  - Developer TypeScript documentation: https://astrix.aspectron.org/docs/
 
   </details>
 <details>
@@ -226,15 +221,6 @@ The framework is compatible with all major desktop and mobile browsers.
   # or with UTXO-index enabled (needed when using wallets)
   cargo run --release --bin astrixd -- --utxoindex
   ```
-  **Start a testnet node**
-
-  ```bash
-cargo run --release --bin astrixd -- --testnet
-  ```
-
-  **Testnet 11**
-  
-  For participation in the 10BPS test network (TN11), see the following detailed [guide](docs/testnet11.md).
 
 <details>
 
@@ -254,7 +240,6 @@ cargo run --release --bin astrixd -- -C /path/to/configfile.toml
 
   For example:
   ```
-testnet = true
 utxoindex = false
 disable-upnp = true
 perf-metrics = true
@@ -413,6 +398,10 @@ Logging in `astrixd` and `simpa` can be [filtered](https://docs.rs/env_logger/0.
     In this command we set the `loglevel` to `INFO`.
 
 </details>
+
+
+
+
 
 
 
